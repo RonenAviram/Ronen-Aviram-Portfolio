@@ -1,33 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronen Aviram | Product Leader</title>
+    <!-- CSS Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Base styles to prevent blank screen */
         html, body {
             margin: 0;
             padding: 0;
-            background-color: #0f172a; /* Force slate-900 background immediately */
-            color: #f8fafc; /* Force slate-50 text color */
+            background-color: #0f172a; /* Force slate-900 background */
+            color: #f8fafc; /* Force slate-50 text */
             font-family: 'Inter', sans-serif;
-            min-height: 100%;
-            overflow-x: hidden;
             scroll-behavior: smooth;
-        }
-        #root {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            opacity: 1 !important; /* Force visibility */
         }
         .glass {
             background: rgba(30, 41, 59, 0.7);
@@ -35,33 +25,189 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .glow-hover:hover {
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
-            border-color: rgba(6, 182, 212, 0.5);
+        .glow-cyan {
+            box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.4);
         }
-        @keyframes reveal-up {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #0f172a;
+            border: 2px solid #64748b;
+            border-radius: 50%;
+            position: absolute;
+            left: -8px;
+            top: 6px;
         }
-        .reveal-animation {
-            animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .timeline-dot.active {
+            border-color: #06b6d4;
+        }
+        /* Simple Gmail Gradient */
+        .gmail-gradient {
+            background: linear-gradient(45deg, #4285F4, #EA4335, #FBBC05, #34A853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
-    <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
     "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
 </head>
-<body class="bg-slate-900">
-    <div id="root"></div>
-    <!-- Load the main logic -->
-    <script type="module" src="./index.tsx"></script>
+<body class="bg-slate-900 text-slate-100">
+
+    <main class="relative z-10 w-full flex flex-col items-center">
+        
+        <!-- HERO SECTION: ALWAYS VISIBLE -->
+        <section class="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 py-16 gap-12 max-w-7xl mx-auto">
+            
+            <!-- Left Side: Content -->
+            <div class="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none">
+                    Ronen <span class="text-cyan-500">Aviram</span>
+                </h1>
+
+                <div class="flex flex-col items-center lg:items-start space-y-8 w-full max-w-xl">
+                    <!-- Static "Card" -->
+                    <div class="glass p-8 rounded-3xl w-full border-white/20 glow-cyan">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                            PRODUCT LEADER
+                        </h2>
+                        <p class="text-cyan-400 text-base md:text-lg mt-2 font-bold uppercase tracking-widest">
+                            Building Lean, Human-Centered SaaS Products
+                        </p>
+                        <div class="mt-6 pt-6 border-t border-white/10 flex flex-col gap-4">
+                            <p class="text-slate-300 font-medium text-lg flex items-center justify-center lg:justify-start gap-3">
+                                <i class="fas fa-heart text-cyan-500"></i> Family Man
+                            </p>
+                            <p class="text-slate-300 font-medium text-lg flex items-center justify-center lg:justify-start gap-3">
+                                <i class="fas fa-running text-cyan-500"></i> Long Distance Runner
+                            </p>
+                            <p class="text-slate-300 font-medium text-lg flex items-center justify-center lg:justify-start gap-3">
+                                <i class="fas fa-shield-halved text-cyan-500"></i> Reserve Officer & CNO
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Profile Image -->
+            <div class="flex-1 flex justify-center order-1 lg:order-2">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-2xl">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQFTtfsTfw7s3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1733063663559?e=1771459200&v=beta&t=m1Ji5KEUOLn4smFhzLdMsufOaOqCHYYNuC_6Dn-SO0I" 
+                         alt="Ronen Aviram" 
+                         class="w-full h-full rounded-full border-4 border-slate-900 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION: ALWAYS VISIBLE -->
+        <section class="w-full max-w-4xl px-6 py-24 border-t border-white/5">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">
+                    Professional Track Record
+                </h2>
+                <div class="w-24 h-1.5 bg-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative border-l-2 border-slate-700 ml-4 md:ml-8 space-y-16">
+                
+                <!-- Item 1 -->
+                <div class="relative pl-10">
+                    <div class="timeline-dot active shadow-[0_0_10px_#06b6d4]"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-white">VP Product (Voluntary)</h3>
+                        <span class="text-cyan-500 bg-cyan-500/10 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">2025 - PRESENT</span>
+                    </div>
+                    <p class="text-cyan-400 font-bold mb-3">City-State (NPO)</p>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Driving product strategy for a national-scale civic-tech initiative. Leading development of digital tools to enhance social infrastructure.
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pl-10">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-white">Product Group Manager</h3>
+                        <span class="text-slate-400 bg-slate-800 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">2025</span>
+                    </div>
+                    <p class="text-cyan-400 font-bold mb-3">Applied Materials</p>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Managed a cross-functional PM group and strategic product portfolio. Launched a transformative SaaS data platform resulting in <span class="text-white font-bold">18% revenue growth</span>.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pl-10">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-white">Product Team Lead & AI Champion</h3>
+                        <span class="text-slate-400 bg-slate-800 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">2020 - 2025</span>
+                    </div>
+                    <p class="text-cyan-400 font-bold mb-3">Applied Materials</p>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Scaled from IC to Team Lead. Achieved <span class="text-white font-bold">25% user adoption increase</span>. Pioneered GenAI workflows to boost R&D efficiency by 15%.
+                    </p>
+                </div>
+
+                <!-- Education -->
+                <div class="relative pl-10">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-white">B.Sc. Mechanical Engineering</h3>
+                        <span class="text-slate-400 bg-slate-800 px-4 py-1 rounded-full text-sm font-bold">DEAN'S LIST</span>
+                    </div>
+                    <p class="text-cyan-400 font-bold mb-3">Tel Aviv University</p>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Specialized in systems engineering and analytical problem solving.
+                    </p>
+                </div>
+
+                <!-- IDF -->
+                <div class="relative pl-10">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 class="text-2xl font-bold text-white">IDF Officer (Captain)</h3>
+                        <span class="text-slate-400 bg-slate-800 px-4 py-1 rounded-full text-sm font-bold">MILITARY SERVICE</span>
+                    </div>
+                    <p class="text-cyan-400 font-bold mb-3">Armored Corps & Casualty Notification Office</p>
+                    <p class="text-slate-400 leading-relaxed text-lg">
+                        Commanded high-stakes tactical units and currently serving as a Reserve Officer for casualty notifications.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER: FIXED & VISIBLE -->
+        <footer class="fixed bottom-8 left-0 right-0 w-full px-6 z-50 flex justify-center">
+            <div class="glass flex items-center gap-8 px-10 py-4 rounded-full shadow-2xl border-white/20">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/ronen-aviram/" target="_blank" class="text-[#0077B5] hover:scale-125 transition-transform">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:Ronen6213@gmail.com" class="hover:scale-125 transition-transform">
+                    <i class="fas fa-envelope text-3xl gmail-gradient"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/972542569556" target="_blank" class="text-[#25D366] hover:scale-125 transition-transform">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                </a>
+            </div>
+        </footer>
+
+        <!-- Bottom Spacer -->
+        <div class="h-32"></div>
+
+    </main>
+
 </body>
 </html>
