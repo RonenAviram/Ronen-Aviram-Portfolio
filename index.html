@@ -46,9 +46,38 @@
         .profile-glow {
             box-shadow: 0 0 50px -12px rgba(6, 182, 212, 0.5);
         }
+
+        /* Toast Notification Styles */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #06b6d4;
+            color: #fff;
+            text-align: center;
+            border-radius: 50px;
+            padding: 12px 24px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 120px;
+            transform: translateX(-50%);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s, visibility 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 140px;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased overflow-x-hidden">
+
+    <!-- Toast Notification Element -->
+    <div id="toast">Email address Ronen6213@gmail.com copied to clipboard</div>
 
     <main class="relative w-full min-h-screen flex flex-col items-center animate-fade-in">
         
@@ -233,11 +262,11 @@
                 </svg>
             </a>
 
-            <!-- Email (Universal Mailto) -->
-            <a href="mailto:ronen6213@gmail.com" 
-               class="text-slate-300 hover:text-white hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center" title="Email Ronen">
+            <!-- Email (Copy to Clipboard Logic) -->
+            <button onclick="copyEmailToClipboard()" 
+               class="text-slate-300 hover:text-white hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center" title="Copy Email">
                 <i class="fas fa-envelope text-2xl md:text-3xl"></i>
-            </a>
+            </button>
 
             <!-- WhatsApp (Brand Green) -->
             <a href="https://wa.me/972542569556" target="_blank" rel="noopener noreferrer" 
@@ -249,6 +278,35 @@
 
         </div>
     </footer>
+
+    <script>
+        function copyEmailToClipboard() {
+            const email = "ronen6213@gmail.com";
+            
+            // Check if on mobile to decide between mailto or copy
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // If on mobile, open standard mail client
+                window.location.href = "mailto:" + email;
+            } else {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast();
+                }).catch(err => {
+                    // Fallback to mailto if clipboard fails
+                    window.location.href = "mailto:" + email;
+                });
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(() => { 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3000);
+        }
+    </script>
 
 </body>
 </html>
