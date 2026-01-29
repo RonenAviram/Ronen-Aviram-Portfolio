@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Experience: React.FC = () => {
@@ -50,9 +49,6 @@ const Experience: React.FC = () => {
           Professional Track Record
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-cyan-500 rounded-full"></div>
         </h2>
-        <p className="text-slate-500 mt-4 text-sm font-medium uppercase tracking-widest italic">
-          Currently leading & building in parallel
-        </p>
       </div>
 
       <div className="relative border-l-2 border-slate-700 ml-4 md:ml-8 space-y-12">
@@ -74,11 +70,11 @@ const Experience: React.FC = () => {
               </span>
             </div>
             
-            <p className="text-slate-300 font-semibold mb-2 flex items-center gap-2">
+            <p className="text-slate-200 font-semibold mb-2 flex items-center gap-2">
               {exp.company}
             </p>
             
-            <p className="text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-slate-300 leading-relaxed max-w-2xl">
               {exp.description}
             </p>
 
@@ -87,7 +83,7 @@ const Experience: React.FC = () => {
                 {exp.highlights.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-slate-300">
                     <span className="mt-1 text-cyan-500 text-[10px]"><i className="fas fa-circle"></i></span>
-                    <span dangerouslySetInnerHTML={{ __html: item.replace(/(\d+%)|(\d+)/g, '<b class="text-white">$1</b>') }}></span>
+                    <span dangerouslySetInnerHTML={{ __html: item.replace(/(\d+%)|(\d+)/g, '<b class="text-white font-bold">$1</b>') }}></span>
                   </li>
                 ))}
               </ul>
