@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronen Aviram | Product Leader</title>
-    <!-- Technical Stack: Tailwind, FontAwesome, Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             color-scheme: dark;
@@ -19,220 +17,53 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             background-color: #0f172a; /* bg-slate-900 */
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         
-        /* Premium High-Tech Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Reliable CSS-only Entry Animation */
+        @keyframes softSlide {
+            0% { 
+                transform: translateY(20px); 
+                opacity: 0; 
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
             }
         }
-
         .animate-entry {
-            animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: softSlide 0.8s ease-out forwards;
         }
 
-        /* Glassmorphism Effects */
         .glass {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .glow-hover {
-            transition: all 0.4s ease;
-        }
-
         .glow-hover:hover {
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.25);
-            border-color: rgba(6, 182, 212, 0.4);
-            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+            border-color: rgba(6, 182, 212, 0.5);
         }
-
         .profile-glow {
-            box-shadow: 0 0 60px -15px rgba(6, 182, 212, 0.4);
-        }
-
-        /* Timeline Gradient */
-        .timeline-line {
-            background: linear-gradient(to bottom, #1e293b, #06b6d4, #1e293b);
-        }
-
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+            box-shadow: 0 0 50px -12px rgba(6, 182, 212, 0.5);
         }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased overflow-x-hidden">
-
-    <main class="relative w-full min-h-screen flex flex-col items-center animate-entry">
-        
-        <!-- Background Ambient Glows -->
-        <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[150px]"></div>
-        </div>
-
-        <!-- 1. Hero Section -->
-        <section class="relative z-10 min-h-screen w-full flex flex-col md:flex-row items-center justify-center px-6 md:px-12 py-20 gap-12 md:gap-20 max-w-7xl mx-auto">
-            
-            <!-- Left: Text Content -->
-            <div class="flex-1 flex flex-col items-center text-center order-2 md:order-1">
-                <h1 class="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tight leading-tight">
-                    Ronen <span class="text-cyan-500">Aviram</span>
-                </h1>
-
-                <div class="flex flex-col items-center space-y-8 w-full max-w-md">
-                    <!-- The "Identity Stack" Primary Interactive Card -->
-                    <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})" 
-                        class="glass glow-hover group flex flex-col items-center p-8 rounded-3xl w-full text-center relative overflow-hidden cursor-pointer">
-                        <div class="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h2 class="text-2xl md:text-4xl font-bold text-white group-hover:text-cyan-400 transition-colors tracking-tight">
-                            Product Leader
-                        </h2>
-                        <p class="text-slate-300 text-sm md:text-base mt-2 font-medium">
-                            Building Lean, Human-Centered SaaS Products
-                        </p>
-                        <div class="mt-6 animate-bounce text-cyan-500">
-                            <i class="fas fa-chevron-down text-xl"></i>
-                        </div>
-                    </button>
-
-                    <!-- Secondary Identity Info -->
-                    <div class="space-y-4 pt-4 w-full text-slate-400 font-medium">
-                        <p class="flex items-center justify-center gap-3">
-                            <i class="fas fa-heart text-cyan-500/40 text-sm"></i> Family Man
-                        </p>
-                        <p class="flex items-center justify-center gap-3">
-                            <i class="fas fa-running text-cyan-500/40 text-sm"></i> Long Distance Runner
-                        </p>
-                        <p class="flex items-center justify-center gap-3 leading-tight">
-                            <i class="fas fa-shield-halved text-cyan-500/40 text-sm"></i> 
-                            Reserve Officer & Casualty Notification Officer
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Profile Image -->
-            <div class="flex-1 flex justify-center order-1 md:order-2">
-                <div class="relative group">
-                    <!-- Glow back-layers -->
-                    <div class="absolute -inset-4 bg-cyan-500/15 rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
-                    <div class="absolute -inset-1 bg-gradient-to-tr from-cyan-500/30 to-blue-600/30 rounded-full blur group-hover:opacity-60 transition duration-1000"></div>
-                    
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-2 bg-slate-800/50 border border-white/10 profile-glow overflow-hidden">
-                        <img 
-                            src="https://media.licdn.com/dms/image/v2/D4D03AQFTtfsTfw7s3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1733063663559?e=1771459200&v=beta&t=m1Ji5KEUOLn4smFhzLdMsufOaOqCHYYNuC_6Dn-SO0I" 
-                            alt="Ronen Aviram" 
-                            class="w-full h-full rounded-full border-4 border-slate-900 object-cover transition-all duration-700 hover:scale-105"
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. Experience Section -->
-        <section id="experience" class="relative z-10 w-full max-w-4xl px-6 py-24 scroll-mt-20">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-white inline-block relative">
-                    Professional Track Record
-                    <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1.5 bg-cyan-500 rounded-full"></div>
-                </h2>
-            </div>
-
-            <div class="relative border-l-2 border-slate-700 ml-4 md:ml-8 space-y-16">
-                
-                <!-- VP Product (Voluntary) -->
-                <div class="relative pl-10 group">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 bg-slate-900 border-2 border-cyan-500 rounded-full group-hover:scale-125 transition-transform">
-                        <div class="absolute inset-0 rounded-full bg-cyan-500 animate-ping opacity-20"></div>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">VP Product (Voluntary)</h3>
-                        <span class="text-sm font-mono mt-2 md:mt-0 px-4 py-1.5 rounded-full text-cyan-400 bg-cyan-500/10 border border-cyan-500/20">2025 - Present</span>
-                    </div>
-                    <p class="text-slate-200 font-semibold mb-3">City-State (NPO)</p>
-                    <p class="text-slate-400 leading-relaxed text-lg">Driving product strategy for a national-scale civic-tech initiative.</p>
-                </div>
-
-                <!-- Product Group Manager -->
-                <div class="relative pl-10 group">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 bg-slate-900 border-2 border-slate-600 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">Product Group Manager</h3>
-                        <span class="text-sm font-mono mt-2 md:mt-0 px-4 py-1.5 rounded-full text-slate-400 bg-slate-800 border border-slate-700">2025</span>
-                    </div>
-                    <p class="text-slate-200 font-semibold mb-3">Applied Materials</p>
-                    <p class="text-slate-400 leading-relaxed text-lg">Managed PM group & strategic portfolio. Launched SaaS data platform resulting in an <b class="text-white">18% revenue increase</b>.</p>
-                </div>
-
-                <!-- Product Team Lead -->
-                <div class="relative pl-10 group">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 bg-slate-900 border-2 border-slate-600 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">Product Team Lead & AI Champion</h3>
-                        <span class="text-sm font-mono mt-2 md:mt-0 px-4 py-1.5 rounded-full text-slate-400 bg-slate-800 border border-slate-700">2020 - 2025</span>
-                    </div>
-                    <p class="text-slate-200 font-semibold mb-3">Applied Materials</p>
-                    <div class="text-slate-400 leading-relaxed text-lg space-y-4">
-                        <p>Scaled from IC to Team Lead. Achieved <b class="text-white">25% adoption increase</b>.</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start gap-3">
-                                <span class="mt-2 w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
-                                <span>Pioneered GenAI implementation for internal efficiency workflows.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="relative pl-10 group">
-                    <div class="absolute -left-[11px] top-1 w-5 h-5 bg-slate-900 border-2 border-slate-600 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">B.Sc. Mechanical Engineering</h3>
-                        <span class="text-sm font-mono mt-2 md:mt-0 px-4 py-1.5 rounded-full text-slate-400 bg-slate-800 border border-slate-700">Dean's List</span>
-                    </div>
-                    <p class="text-slate-200 font-semibold mb-3">Tel Aviv University</p>
-                    <p class="text-slate-400 leading-relaxed text-lg italic">Strong analytical foundation in system engineering and optimization.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final Spacer -->
-        <div class="h-32"></div>
-
-    </main>
-
-    <!-- 3. Sticky Footer / Contact Bar -->
-    <footer class="fixed bottom-8 w-full px-6 flex justify-center z-50 pointer-events-none">
-        <div class="glass rounded-full px-8 py-4 flex items-center gap-8 shadow-2xl pointer-events-auto border border-white/20">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/ronen-aviram/" target="_blank" rel="noopener noreferrer" 
-               class="text-[#0077B5] hover:scale-125 transition-transform duration-300" title="LinkedIn Profile">
-                <i class="fab fa-linkedin text-3xl"></i>
-            </a>
-
-            <!-- Email -->
-            <a href="mailto:Ronen6213@gmail.com" 
-               class="relative group text-slate-300 hover:scale-125 transition-transform duration-300" title="Email Ronen">
-               <i class="fas fa-envelope text-3xl"></i>
-            </a>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/972542569556" target="_blank" rel="noopener noreferrer" 
-               class="text-[#25D366] hover:scale-125 transition-transform duration-300" title="WhatsApp Me">
-                <i class="fab fa-whatsapp text-3xl"></i>
-            </a>
-        </div>
-    </footer>
-
+    <!-- Root element for React mounting -->
+    <div id="root"></div>
 </body>
 </html>
