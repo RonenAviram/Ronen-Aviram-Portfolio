@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ onReveal }) => {
             <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             <h2 className="text-2xl md:text-4xl font-bold text-white group-hover:text-cyan-400 transition-colors relative z-10 tracking-tight">
-              Product Leader
+              PRODUCT LEADER
             </h2>
             
             <p className="text-slate-300 text-xs md:text-base mt-2 leading-snug relative z-10 font-medium">
